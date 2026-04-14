@@ -18,7 +18,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t BUILD_ID=${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/vue-app:${{ github.sha }} .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/vue-app:${{ github.sha }} .
 
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/vue-app:${{ github.sha }}
